@@ -1,0 +1,75 @@
+Sub StockChallenge():
+   
+    Dim ws As Worksheet
+    Dim Ticker As String
+    Dim YearChange As Double
+    Dim PerChange As Double
+    Dim YearOpen As Double
+    Dim YearClose As Double
+    Dim TotalVolume As Double
+    Dim count As Integer
+    Dim SummaryTableRow As Integer
+  
+    For Each ws In Worksheets
+        ws.Range("I1").Value = "Ticker"
+        ws.Range("J1").Value = "Yearly Change"
+        ws.Range("K1").Value = "% Change"
+        ws.Range("L1").Value = "Total Stock Volume"
+        ws.Range("M2").Value = "Greatest % Increase"
+        ws.Range("M3").Value = "Greatest % Decrease"
+        ws.Range("M4").Value = "Greatest Total Volume"
+        ws.Range("N1").Value = "Ticker"
+        ws.Range("O1").Value = "Value"
+   
+    SummaryTableRow = 2
+    YearChange = 0    
+    PerChange = 0
+    YearOpen = 0
+    YearClose = 0  
+    TotalVolume = 0
+    count = 0
+    
+    Last_row = ws.Range("A2").End(xlDown).Row
+    For r = 2 To Last_row
+    On Error Resume Next
+        If ws.Cells(r, 1).Value <> ws.Cells(r + 1, 1).Value Then
+            Ticker = ws.Cells(r, 1).Value
+            TotalVolume = ws.Cells(r, 7).Value + TotalVolume
+            YearOpen = ws.Cells(r - count, 3).Value
+            YearClose = ws.Cells(r, 6).Value
+            YearChange = YearClose - YearOpen
+            PerChange = YearChange / YearOpen
+            ws.Range("I" & SummaryTableRow).Value = Ticker
+            ws.Range("J" & SummaryTableRow).Value = YearChange
+            ws.Range("K" & SummaryTableRow).Value = Format(PerChange, "00.00%")
+            ws.Range("L" & SummaryTableRow).Value = TotalVolume
+            SummaryTableRow = SummaryTableRow + 1
+           
+            TotalVolume = 0
+            Tick = 0
+            YearOpen = 0
+            YearClose = 0
+            YearChange = 0
+            PerChange = 0
+            count = 0
+        Else
+            TotalVolume = TotalVolume + Cells(r, 7).Value
+            count = count + 1
+        End If
+       Next r
+        
+
+
+        'Format
+        If ws.Cells(r, 10).Value <= 0 Then
+                ws.Cells(r, 10).Interior.Color = rgbRed
+            Else
+                ws.Cells(r, 10).Interior.Color = rgbGreen
+            End If
+        Next r
+       
+       
+        'Autofit
+        ws.Cells.EntireColumn.AutoFit
+    Next ws
+End Sub
