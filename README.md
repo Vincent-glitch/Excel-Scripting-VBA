@@ -1,8 +1,8 @@
 # The VBA of Wall Street
 
-## Background
+![stock Market](Images/stockmarket.jpg)
 
-Used VBA scripting to analyze real stock market data.
+I created VBA script within large excel spreadsheets to analyze real stock market data.
 
 * Created a script that will loop through all the stocks for one year and output the following information.
 
@@ -16,4 +16,4 @@ Used VBA scripting to analyze real stock market data.
 
 * Conditional formatting that will highlight positive change in green and negative change in red.
 
-Solution will also be able to return the stock with the "Greatest % increase", "Greatest % decrease" and "Greatest total volume". 
+Solution will also return the stock with the "Greatest % increase", "Greatest % decrease" and "Greatest total volume". 
