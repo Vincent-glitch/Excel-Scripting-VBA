@@ -7,13 +7,8 @@ Sub StockChangeCheck():
     Dim YearChange As Double
     Dim PerChange As Double
     Dim TSV As Double
-    
-    
     Dim count As Integer
     Dim SummaryTableRow As Integer
-   
-
-    'Do I even need this?
     Dim MaxInc As Double
     Dim MaxIncName As String
     Dim MaxDec As Double
@@ -73,14 +68,12 @@ Sub StockChangeCheck():
         'Bonus
         ResultTickLast = ws.Range("I2").End(xlDown).Row
         
-'Is this cheating? 
         MaxInc = ws.Application.WorksheetFunction.Max(ws.Range("K:K"))
             ws.Range("O2").Value = Format(MaxInc, "00.00%")
         MaxDec = ws.Application.WorksheetFunction.Min(ws.Range("K:K"))
             ws.Range("O3").Value = Format(MaxDec, "00.00%")
         MaxTotVol = ws.Application.WorksheetFunction.Max(ws.Range("L:L"))
             ws.Range("O4").Value = MaxTotVol
-'cuz it werks.
 
         For r = 2 To ResultTickLast
         If ws.Cells(r, 12).Value = MaxTotVol Then
@@ -99,7 +92,7 @@ Sub StockChangeCheck():
         ws.Range("N4").Value = MaxTotVolName
         ws.Range("N3").Value = MaxDecName
         ws.Range("N2").Value = MaxIncName
-'yes, I did need that. I think,        
+     
 
         'Formatting
         If ws.Cells(r, 10).Value <= 0 Then
