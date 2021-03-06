@@ -1,21 +1,18 @@
 
-# VBA on Wall Street
+# VBA on Ticker Tracker
 
-![stock Market](Images/stockmarket.jpg)
+his VBA script loops through all the stocks for one year and output the following information before repeating this process on the next years (worksheets) data:
 
-I created VBA script within large excel spreadsheets to analyze real stock market data.
+* The ticker symbol.
 
-* Created a script that will loop through all the stocks for one year and output the following information.
+* Yearly change from opening price at the beginning of a given year to the closing price at the end of that year.
 
-  * The ticker symbol.
+* The percent change from opening price at the beginning of a given year to the closing price at the end of that year.
 
-  * Yearly change from opening price at the beginning of a given year to the closing price at the end of that year.
+* The total stock volume of the stock.
 
-  * The percent change from opening price at the beginning of a given year to the closing price at the end of that year.
+* The stock with the "Greatest % increase", "Greatest % decrease" and "Greatest total volume".
 
-  * The total stock volume of the stock.
 
-* Conditional formatting that will highlight positive change in green and negative change in red.
-
-Solution will also return the stock with the "Greatest % increase", "Greatest % decrease" and "Greatest total volume". 
-
+### Tech Stack
+* Miscrosoft Excel (VBA Macro)
