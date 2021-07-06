@@ -15,4 +15,4 @@ his VBA script loops through all the stocks for one year and output the followin
 
 
 ### Tech Stack
-* Miscrosoft Excel (VBA Macro)
+* Miscrosoft Excel and VBA 
