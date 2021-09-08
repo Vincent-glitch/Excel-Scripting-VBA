@@ -59,7 +59,7 @@ Sub stocks()
     
     MsgBox ("The last row is :" + Str(totalRows))
 End Sub
-Sub Challenge()
+Sub MaxAndMin()
     Dim m As LongLong
     Dim n As LongLong
     Dim row_MaxK As LongLong
